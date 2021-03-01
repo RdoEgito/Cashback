@@ -1,10 +1,20 @@
-td, th {
-    text-align: center; 
+body {
+    padding: 1%;
+}
+
+td,
+th {
+    text-align: center;
     vertical-align: middle;
 }
 
-tr {
-    line-height: 0.5rem;
+td input {
+    height: 24px;
+}
+
+th {
+    line-height: 2rem;
+    font-size: large;
 }
 
 input {
@@ -12,8 +22,8 @@ input {
     text-align: center;
 }
 
-#header {
-    margin: auto;
+ul {
+    margin: 15px 0;
 }
 
 .vale {
@@ -22,4 +32,29 @@ input {
 
 .naoVale {
     background-color: #E05958;
+}
+
+input[type="radio"]:hover {
+    cursor: pointer;
+}
+
+input[type="text"]:disabled {
+    background: #dddddd;
+}
+
+img {
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    td,
+    th {
+        font-size: small;
+    }
+    td input {
+        width: 2rem;
+    }
+    th {
+        line-height: 1rem;
+    }
 }
