@@ -29,7 +29,9 @@ function calcCashback() {
             vBoleto = Number(valorEspecifico.value)
             vParcela = vBoleto * (1 + taxaCartao) * CF
             vCobrado = vParcela * nParcelas
-            vCashback = vCobrado * (pCashback / 100) < vMaxCashback.value ? vCobrado * (pCashback / 100) : vMaxCashback.value
+            vCashback = vCobrado * (pCashback / 100) < vMaxCashback.value ? vCobrado * (pCashback / 100) : Number(vMaxCashback.value)
+
+            console.log(vBoleto, vCobrado, vCashback)
 
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(5)")).map(x => x.style.display = "table-cell")
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(4)")).map(x => x.style.display = "none")
