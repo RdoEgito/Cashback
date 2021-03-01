@@ -1,0 +1,25 @@
+td, th {
+    text-align: center; 
+    vertical-align: middle;
+}
+
+tr {
+    line-height: 0.5rem;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+}
+
+#header {
+    margin: auto;
+}
+
+.vale {
+    background-color: #63FF90;
+}
+
+.naoVale {
+    background-color: #E05958;
+}
