@@ -58,3 +58,8 @@ img {
         line-height: 1rem;
     }
 }
+
+code {
+    color: white;
+    background-color: grey;
+}
