@@ -3,6 +3,7 @@ let radio_cashbackMaximo = document.getElementById("radio_cashbackMaximo")
 let radio_valorEspecifico = document.getElementById("radio_valorEspecifico")
 let valorEspecifico = document.getElementById("valorEspecifico")
 let vMaxCashback = document.getElementById("cashback-value")
+let vMaxBoleto = document.getElementById("boleto-max-value")
 
 function calcCashback() {
     const taxaCartao = 2.99 / 100
@@ -22,6 +23,12 @@ function calcCashback() {
             vBoleto = ((valorAlvo / nParcelas) / (CF)) / (1 + taxaCartao)
             vParcela = vBoleto * (1 + taxaCartao) * CF
             vCobrado = vParcela * nParcelas
+            if (vBoleto > Number(vMaxBoleto.value)) {
+                vBoleto = Number(vMaxBoleto.value)
+                vParcela = vBoleto * (1 + taxaCartao) * CF
+                vCobrado = vParcela * nParcelas
+                vCashback = vCobrado * (pCashback / 100) < vMaxCashback.value ? vCobrado * (pCashback / 100) : Number(vMaxCashback.value)
+            }
 
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(4)")).map(x => x.style.display = "table-cell")
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(5)")).map(x => x.style.display = "none")
@@ -31,7 +38,7 @@ function calcCashback() {
             vCobrado = vParcela * nParcelas
             vCashback = vCobrado * (pCashback / 100) < vMaxCashback.value ? vCobrado * (pCashback / 100) : Number(vMaxCashback.value)
 
-            console.log(vBoleto, vCobrado, vCashback)
+            // console.log(vBoleto, vCobrado, vCashback)
 
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(5)")).map(x => x.style.display = "table-cell")
             Array.prototype.slice.call(document.querySelectorAll("table tr>*:nth-child(4)")).map(x => x.style.display = "none")
